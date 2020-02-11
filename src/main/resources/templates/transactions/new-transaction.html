@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Transaction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+
+    <h3>Create New Transaction</h3>
+
+    <div class="mx-auto">
+    <form th:action="@{/transactions/processNewTransaction}" th:object="${newTransaction}" method="post" class="w-75">
+        <div class="form-group">
+            <input type="text" th:field="*{amount}" th:placeholder="'Amount'" class="form-control col-3">
+        </div>
+
+        <div class="form-group">
+        <input type="text" th:field="*{description}" th:placeholder="'Description'" class="form-control col-6">
+        </div>
+
+        <!--<select th:field="*{type}" th:placeholder="Type" value="type">-->
+            <!--<option value="deposit">Deposit</option>-->
+            <!--<option value="transaction">Withdrawal</option>-->
+            <!--<option value="purchase">Purchase</option>-->
+        <!--</select><br/>-->
+
+        <select th:field="*{type}" th:placeholder="Type" value="type">
+            <option th:value="${T(com.rissandimo.bankwebapp3.dao.Type).DEPOSIT}">Deposit</option>
+            <option th:value="${T(com.rissandimo.bankwebapp3.dao.Type).WITHDRAWAL}">Withdrawal</option>
+            <option th:value="${T(com.rissandimo.bankwebapp3.dao.Type).PURCHASE}">Purchase</option>
+        </select><br/>
+
+
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+    </div>
+</div>
+</body>
+</html>

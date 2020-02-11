@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Successful</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+
+                <ul class="navbar-nav mr-auto"></ul>
+                    <a th:href="@{/logout}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</a>
+        </nav>
+
+                <div class="card-body">
+                <p th:text="${user.getFullName() + ', you have successfully logged in.'}"></p>
+
+                <a th:href="@{/transactions/transactionList}">Transaction List</a>
+                </div>
+        </div>
+    </div>
+
+</body>
+</html>

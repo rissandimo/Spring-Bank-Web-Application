@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+
+    <nav class="navbar">
+            <ul class="navbar-nav mr-auto"> </ul>
+                <a th:href="@{/logout}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</a>
+            </form>
+    </nav>
+
+    <table class="table table-bordered table-stripped">
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Balance</th>
+        </tr>
+        <tr th:each="transaction: ${transactions}">
+            <td th:text="${#dates.format(transaction.transactionDate, 'MM-dd-yyyy')}"></td>
+            <td th:text="${transaction.getDescription()}"></td>
+            <th th:text="${'$' + #numbers.formatDecimal(transaction.amount, 1, 2)}"></th>
+            <th th:text="${'$' + #numbers.formatDecimal(transaction.balance, 1, 2)}"></th>
+        </tr>
+    </table>
+    <a class="btn btn-primary" th:href="@{/transactions/addNewTransaction}">Add New Transaction</a>
+
+</div>
+</body>
+</html>
