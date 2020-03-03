@@ -21,11 +21,6 @@
         <input type="text" th:field="*{description}" th:placeholder="'Description'" class="form-control col-6">
         </div>
 
-        <!--<select th:field="*{type}" th:placeholder="Type" value="type">-->
-            <!--<option value="deposit">Deposit</option>-->
-            <!--<option value="transaction">Withdrawal</option>-->
-            <!--<option value="purchase">Purchase</option>-->
-        <!--</select><br/>-->
 
         <select th:field="*{type}" th:placeholder="Type" value="type">
             <option th:value="${T(com.rissandimo.bankwebapp3.dao.Type).DEPOSIT}">Deposit</option>
